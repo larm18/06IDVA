@@ -5,7 +5,6 @@
  */
 package Presentacion;
 
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import Encapsulamiento.EncapsulamientoEstudiantes;
 import Negocios.NegociosEstudiantes;

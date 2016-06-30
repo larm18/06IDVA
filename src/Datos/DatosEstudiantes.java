@@ -21,7 +21,7 @@ public class DatosEstudiantes {
         
         try
         {
-            CallableStatement statement = conexion.prepareCall("{call sp_IngresarEstudiante(?,?,?,?,?,?,?,?)}");
+            CallableStatement statement = conexion.prepareCall("{call sp_Ingresar_Estudiante(?,?,?,?,?,?,?,?)}");
            
             statement.setString(1, estudiantes.correo());
             statement.setString(2, estudiantes.nombre());
