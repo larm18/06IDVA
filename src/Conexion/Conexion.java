@@ -23,7 +23,7 @@ public abstract class Conexion {
             Class.forName("com.mysql.jdbc.Driver");
             String servidor="jdbc:mysql://localhost/ProyectoClase";
             String usuario="root";
-            String contrasenia="luis3501267";
+            String contrasenia="password";
             conexion=(Connection)DriverManager.getConnection(servidor, usuario, contrasenia);
             //JOptionPane.showMessageDialog(null, "Conexion Exiosa");
         }
