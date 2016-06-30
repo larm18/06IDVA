@@ -136,8 +136,8 @@ public class IngresarEstudiante extends javax.swing.JFrame {
         
         try {
             Resultado = NegociosEstudiantes.ingresarEstudiante(estudiante);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Ha ocurrido un error" + ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR: " + ex.getMessage());
         }
         
         if ( Resultado != null)

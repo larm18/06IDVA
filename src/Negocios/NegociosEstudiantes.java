@@ -18,7 +18,7 @@ import Datos.DatosEstudiantes;
  */
 public class NegociosEstudiantes extends Conexion {
     
-    public static String ingresarEstudiante(EncapsulamientoEstudiantes estudiantes) throws SQLException
+    public static String ingresarEstudiante(EncapsulamientoEstudiantes estudiantes) throws Exception
     {
         String Resultado = null;
         
@@ -38,7 +38,8 @@ public class NegociosEstudiantes extends Conexion {
         {
             // Si existe algun error, regresamos los cambios, si esque lo hizo en la BD (Cancela la consulta)
             conexion.rollback();
-            JOptionPane.showMessageDialog(null, "Error al Conectarse con la BD " + e.getMessage());
+            // Retorna excepcion a la capa de presentacion
+            throw new Exception("Error en la Capa de Negocios " + e.getMessage());
         }
         
         return Resultado;

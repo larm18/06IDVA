@@ -40,7 +40,7 @@ public class DatosEstudiantes {
         catch(Exception e)
         {
             // Retorna excepcion a la capa de negocios
-            throw new Exception("Error en la Capa de Datos MySQL " + e.getMessage());
+            throw new Exception("Error en la Capa de Datos " + e.getMessage());
         }
         
         return Resultado;
