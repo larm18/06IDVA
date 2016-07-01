@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 import Encapsulamiento.EncapsulamientoEstudiantes;
 import Conexion.Conexion;
 import Datos.DatosEstudiantes;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -45,4 +47,42 @@ public class NegociosEstudiantes extends Conexion {
         return Resultado;
             
     }
+    
+    public static List<EncapsulamientoEstudiantes> mostrarEstudiantes() throws Exception
+    {
+        List<EncapsulamientoEstudiantes> listaEstudiantes = new ArrayList<>();
+        Connection conexion = Conexion();
+        
+        try
+        {
+            conexion.setAutoCommit(false);
+            
+            listaEstudiantes = DatosEstudiantes.mostrarEstudiantes(conexion);
+            
+            conexion.commit();
+        }
+        catch (Exception e)
+        {
+            conexion.rollback();
+            throw new Exception("Error en la Capa de Negocios " + e.getMessage());
+        }
+        
+        return listaEstudiantes;
+    }
+    
+    public static boolean elimarEstudiante(EncapsulamientoEstudiantes estudiante) throws Exception
+    {
+        boolean estado = false;
+        Connection conexion = Conexion();
+        
+        try {
+            DatosEstudiantes.eliminarEstudiante(conexion, estudiante.id());
+            estado = true;
+        } catch (Exception e) {
+            throw new Exception("Error en la Capa de Negocios " + e.getMessage());
+        }
+        
+        return estado;
+        }
+    
 }

@@ -21,10 +21,11 @@ public class EncapsulamientoEstudiantes {
     int idCarrera;
     
     public EncapsulamientoEstudiantes() {}
-    public EncapsulamientoEstudiantes(int id, String apellidoPaterno, String apellidoMaterno,
+    public EncapsulamientoEstudiantes(int id, String nombre, String apellidoPaterno, String apellidoMaterno,
            String direccion, int telefono, int edad, String correo, int idCarrera)
     {
         this.id = id;
+        this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.direccion = direccion;
