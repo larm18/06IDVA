@@ -6,8 +6,6 @@
 package Negocios;
 
 import java.sql.Connection;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 import Encapsulamiento.EncapsulamientoEstudiantes;
 import Conexion.Conexion;
 import Datos.DatosEstudiantes;
@@ -83,6 +81,21 @@ public class NegociosEstudiantes extends Conexion {
         }
         
         return estado;
+    }
+    
+    public static boolean actualizarEstudiante(EncapsulamientoEstudiantes estudiante) throws Exception
+    {
+        boolean estado = false;
+        Connection conexion = Conexion();
+        
+        try {
+            DatosEstudiantes.actualizarEstudiante(conexion, estudiante);
+            estado = true;
+        } catch (Exception e) {
+            throw new Exception("Error en la Capa de Negocios " + e.getMessage());
         }
+        
+        return estado;
+    }
     
 }

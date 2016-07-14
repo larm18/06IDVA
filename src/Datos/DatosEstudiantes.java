@@ -101,4 +101,27 @@ public class DatosEstudiantes {
         }
     }
     
+    public static void actualizarEstudiante(Connection conexion, EncapsulamientoEstudiantes estudiante) throws Exception
+    {
+        try {
+            CallableStatement statement = (CallableStatement) conexion.prepareCall("{call sp_actualizar_estudiante(?,?,?,?,?,?,?,?,?)}");
+            
+            statement.setInt(1, estudiante.id());
+            statement.setString(2, estudiante.nombre());
+            statement.setString(3, estudiante.apellidoPaterno());
+            statement.setString(4, estudiante.apellidoMaterno());
+            statement.setString(5, estudiante.direccion());
+            statement.setInt(6, estudiante.telefono());
+            statement.setInt(7, estudiante.edad());
+            statement.setString(8, estudiante.correo());
+            statement.setInt(9, estudiante.idCarrera());
+            
+            statement.executeQuery();
+            
+        } catch (Exception e) {
+             throw new Exception("Error en la Capa de Datos " + e.getMessage());
+        }
+        
+    }
+    
 }
