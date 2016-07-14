@@ -162,7 +162,7 @@ public class Editar extends javax.swing.JFrame {
         estudiante.idCarrera(Integer.parseInt(txtCarrera.getText()));
         
         try {
-            // Si se ha actualizado, regresa el numero de filas que han sido modificadas
+            // El metodo actualiar persona retorna un valor booleano
             if(NegociosEstudiantes.actualizarEstudiante(estudiante))
             {
                 JOptionPane.showMessageDialog(this, "Estudiante actualizado corectamente");
